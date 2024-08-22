@@ -1,0 +1,21 @@
+name: test
+on:
+  pull_request:
+    paths:
+      - src/**/*
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: using node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0
+      - name: install pnpm
+        run: npm i -g pnpm
+      - name: module install
+        run: pnpm i --frozen-lockfile
+      - name: running test
+        run: yarn test --passWithNoTests

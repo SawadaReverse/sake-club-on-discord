@@ -1,0 +1,10 @@
+services:
+  bot:
+    build:
+      context: ./
+      args:
+        - BOT_TOKEN=${BOT_TOKEN}
+        - CHANNEL_NAME=${CHANNEL_NAME}
+        - LOG_LEVEL=${LOG_LEVEL}
+        - TORIKI_COMMAND=${TORIKI_COMMAND}
+    restart: always

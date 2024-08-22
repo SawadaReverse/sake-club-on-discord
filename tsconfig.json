@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "sourceMap": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "types": ["@types/jest", "@types/node"],
+    "outDir": "dists/"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
