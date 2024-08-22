@@ -13,6 +13,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.17.0
+      - name: install pnpm
+        run: npm i -g pnpm
       - name: module install
         run: pnpm i --frozen-lockfile
       - name: run typeChecking
