@@ -1,0 +1,8 @@
+dists/
+node_modules/
+.eslint*
+.mise.toml
+.prettierrc
+compose.yml
+Dockerfile
+jest.config.ts
