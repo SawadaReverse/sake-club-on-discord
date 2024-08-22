@@ -19,5 +19,3 @@ jobs:
         run: pnpm i --frozen-lockfile
       - name: lint check
         uses: reviewdog/action-eslint@v1
-        with:
-          eslint_flags: --ext .ts src
