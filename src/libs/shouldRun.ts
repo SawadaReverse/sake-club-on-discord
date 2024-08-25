@@ -1,5 +1,5 @@
-import { CHANNEL_NAME, TORIKI_COMMAND } from '../libs/environment';
-import { Logger } from './logger';
+import { env } from '../utils/environment';
+import { Logger } from '../utils/logger';
 import { Client, Message } from 'discord.js';
 
 export const shouldRun = (
@@ -15,9 +15,9 @@ export const shouldRun = (
 
   const channel = guild.channels.cache.get(message.channelId);
   Logger.debug(`channel: ${JSON.stringify(channel)}`);
-  if (!channel || channel.name !== CHANNEL_NAME) {
+  if (!channel || channel.name !== env.CHANNEL_NAME) {
     return false;
   }
 
-  return message.content === TORIKI_COMMAND;
+  return message.content === env.TORIKI_COMMAND;
 };

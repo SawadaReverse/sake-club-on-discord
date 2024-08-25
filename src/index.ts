@@ -1,13 +1,13 @@
 import { Client, Events } from 'discord.js';
 import { Logger } from './utils/logger';
-import { shouldRun } from './utils/shouldRun';
+import { shouldRun } from './libs/shouldRun';
 import { intents } from './libs/config';
 import { getTorikiResult } from './libs/getTorikiResult';
-import { BOT_TOKEN } from './libs/environment';
+import { env } from './utils/environment';
 
 const main = async () => {
   const client = new Client({ intents });
-  await client.login(BOT_TOKEN);
+  await client.login(env.BOT_TOKEN);
 
   client.once(Events.ClientReady, (c) => {
     Logger.info(`Logged in as ${c.user.tag}`);

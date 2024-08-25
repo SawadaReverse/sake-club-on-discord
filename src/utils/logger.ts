@@ -1,14 +1,14 @@
-const logLevel = ['DEBUG', 'INFO', 'ERROR'] as const;
+import { env } from './environment';
+
+export type LogLevel = 'INFO' | 'DEBUG' | 'ERROR';
+
 type LogFormat = {
-  level: (typeof logLevel)[number];
+  level: LogLevel;
   message: string;
   processingDate: string;
 };
 
-let currentLogLevel = process.env.LOG_LEVEL || 'ERROR';
-if (!(currentLogLevel in logLevel)) {
-  currentLogLevel = 'ERROR';
-}
+const currentLogLevel = env.LOG_LEVEL;
 
 export class Logger {
   static error(message: string) {
@@ -21,24 +21,24 @@ export class Logger {
   }
 
   static info(message: string) {
-    if (currentLogLevel !== 'ERROR') {
+    if (currentLogLevel === 'INFO' || currentLogLevel === 'DEBUG') {
       const log: LogFormat = {
         level: 'INFO',
         message,
         processingDate: new Date().toISOString(),
       };
-      console.info(log);
+      console.log(log);
     }
   }
 
   static debug(message: string) {
-    if (currentLogLevel !== 'ERROR' && currentLogLevel !== 'INFO') {
+    if (currentLogLevel === 'DEBUG') {
       const log: LogFormat = {
         level: 'DEBUG',
         message,
         processingDate: new Date().toISOString(),
       };
-      console.debug(log);
+      console.log(log);
     }
   }
 }
