@@ -1,5 +1,7 @@
+import { randomInt } from 'crypto';
+
 const getRandomIndex = (): 'tori' | 'ki' | 'zoku' => {
-  const rand = Math.floor(Math.random() * 3);
+  const rand = randomInt(4);
   return rand === 1 ? 'tori' : rand === 2 ? 'ki' : 'zoku';
 };
 
