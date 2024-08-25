@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
   CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
   LOG_LEVEL: ${{ vars.LOG_LEVEL }}
   TORIKI_COMMAND: ${{ vars.TORIKI_COMMAND }}
