@@ -18,5 +18,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - shell: bash
+        run: |
+          touch .env
+          cat <<EOF > .env
+          BOT_TOKEN=${BOT_TOKEN}
+          CHANNEL_NAME=${CHANNEL_NAME}
+          LOG_LEVEL=${LOG_LEVEL}
+          TORIKI_COMMAND=${TORIKI_COMMAND}
+          EOF
       - name: deploy
         run: docker compose up -d --force-recreate
